@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2021 at 08:07 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Generation Time: Apr 12, 2024 at 06:28 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `class_result` (
   `total_marks` varchar(11) NOT NULL,
   `obtain_marks` varchar(11) NOT NULL,
   `result_date` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `class_result`
@@ -90,27 +90,26 @@ INSERT INTO `class_result` (`class_result_id`, `roll_no`, `course_code`, `subjec
 --
 
 CREATE TABLE `courses` (
-  `course_code` varchar(10) NOT NULL,
-  `course_name` varchar(50) NOT NULL,
+  `course_code` varchar(20) NOT NULL,
+  `course_name` varchar(100) NOT NULL,
   `semester_or_year` varchar(10) NOT NULL,
   `no_of_year` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `courses`
 --
 
 INSERT INTO `courses` (`course_code`, `course_name`, `semester_or_year`, `no_of_year`) VALUES
-('AHL', 'Allied Health Science', 'Semester', 4),
-('B.Arch', 'Bachular in Architecture', 'Semester', 5),
-('B.Fashion', 'Bachular in Fashion and Design', 'Semester', 4),
-('BBA', 'Bachular in Business Administration', 'Semester', 2),
-('BSAI', 'Bachular in Artificial Inteligence', 'Semester', 2),
-('BSEE', 'Bachular in Electrical Engineering', 'Semester', 4),
-('M.Arch', 'Masters in Architecture', 'Semester', 2),
-('M.Com', 'Master in Commerce', 'Semester', 2),
-('MCS', 'Master in Computer Science', 'Semester', 2),
-('MIT', 'Master in Information Technology', 'Semester', 2);
+('B.COM', 'Bachelor of Commerce', 'Semester', 3),
+('B.Tech CIVIL', 'Bachelor of Technology in Civil Engineering', 'Semester', 4),
+('B.Tech CSE', 'Bachelor of Technology in Computer Science & Engineering', 'Semester', 4),
+('B.Tech ECE', 'Bachelor of Technology in Electronics and Communication', 'Semester', 4),
+('B.Tech EEE', 'Bachelor of Technology in Electrical and Electronics', 'Semester', 4),
+('BA English', 'Bachelor of Arts in English', 'Semester', 3),
+('BBA', 'Bachelor of Business Administration', 'Semester', 3),
+('BCA', 'Bachelor of Computer Applications', 'Semester', 3),
+('M.COM', 'Master of Commerce', 'Semester', 2);
 
 -- --------------------------------------------------------
 
@@ -124,7 +123,7 @@ CREATE TABLE `course_subjects` (
   `course_code` varchar(10) NOT NULL,
   `semester` int(10) NOT NULL,
   `credit_hours` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `course_subjects`
@@ -155,15 +154,16 @@ CREATE TABLE `login` (
   `Password` varchar(30) NOT NULL,
   `Role` varchar(10) NOT NULL,
   `account` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `login`
 --
 
 INSERT INTO `login` (`ID`, `user_id`, `Password`, `Role`, `account`) VALUES
-(2, 'admin@gmail.com', 'admin123*', 'Admin', ''),
-(5, 'staff1@gmail.com', 'teacher123*', 'Teacher', '');
+(2, 'admin@gmail.com', 'admin', 'Admin', ''),
+(5, 'staff1@gmail.com', 'teacher123*', 'Teacher', ''),
+(6, 'SBU200848', 'student123*', 'Student', '');
 
 -- --------------------------------------------------------
 
@@ -175,7 +175,7 @@ CREATE TABLE `mytable` (
   `id` varchar(20) NOT NULL,
   `name` varchar(30) NOT NULL,
   `course_code` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `mytable`
@@ -198,14 +198,17 @@ CREATE TABLE `sessions` (
   `session_id` int(11) NOT NULL,
   `session` varchar(30) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sessions`
 --
 
 INSERT INTO `sessions` (`session_id`, `session`, `created_date`) VALUES
-(1, 'S19', '2020-03-11 20:20:44');
+(1, '2020', '2024-04-10 18:07:22'),
+(2, '2021', '2024-04-10 18:07:22'),
+(3, '2022', '2024-04-10 18:07:22'),
+(4, '2023', '2024-04-10 18:07:22');
 
 -- --------------------------------------------------------
 
@@ -221,7 +224,7 @@ CREATE TABLE `student_attendance` (
   `student_id` varchar(20) NOT NULL,
   `attendance` int(11) NOT NULL,
   `attendance_date` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `student_attendance`
@@ -251,7 +254,7 @@ CREATE TABLE `student_courses` (
   `subject_code` varchar(10) NOT NULL,
   `session` varchar(10) NOT NULL,
   `assign_date` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `student_courses`
@@ -276,7 +279,7 @@ CREATE TABLE `student_fee` (
   `amount` int(11) NOT NULL,
   `posting_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `student_fee`
@@ -329,7 +332,14 @@ CREATE TABLE `student_info` (
   `obtain_marks` int(11) NOT NULL,
   `state` varchar(20) NOT NULL,
   `admission_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `student_info`
+--
+
+INSERT INTO `student_info` (`roll_no`, `first_name`, `middle_name`, `last_name`, `father_name`, `email`, `mobile_no`, `course_code`, `session`, `profile_image`, `prospectus_issued`, `prospectus_amount`, `form_b`, `applicant_status`, `application_status`, `cnic`, `dob`, `other_phone`, `gender`, `permanent_address`, `current_address`, `place_of_birth`, `matric_complition_date`, `matric_awarded_date`, `matric_certificate`, `fa_complition_date`, `fa_awarded_date`, `fa_certificate`, `ba_complition_date`, `ba_awarded_date`, `ba_certificate`, `semester`, `total_marks`, `obtain_marks`, `state`, `admission_date`) VALUES
+('SBU200848', 'Piyush', 'hv', 'Kumar', 'aaaaa', 'piyushk461@gmail.com', '8210428747', 'B.Tech', '2020', '', 'Select Opt', 'Select Opt', '', 'Select Option', 'Select Option', '', '', '', 'Select Gen', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '2024-04-10 18:14:40');
 
 -- --------------------------------------------------------
 
@@ -342,7 +352,7 @@ CREATE TABLE `teacher_attendance` (
   `teacher_id` varchar(30) NOT NULL,
   `attendance` int(11) NOT NULL,
   `attendance_date` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teacher_attendance`
@@ -369,7 +379,7 @@ CREATE TABLE `teacher_courses` (
   `subject_code` varchar(10) NOT NULL,
   `assign_date` varchar(10) NOT NULL,
   `total_classes` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teacher_courses`
@@ -421,7 +431,7 @@ CREATE TABLE `teacher_info` (
   `last_qualification` varchar(20) NOT NULL,
   `state` varchar(20) NOT NULL,
   `hire_date` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teacher_info`
@@ -442,7 +452,7 @@ CREATE TABLE `teacher_salary_allowances` (
   `medical_allowance` int(11) NOT NULL,
   `hr_allowance` int(11) NOT NULL,
   `scale` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teacher_salary_allowances`
@@ -465,7 +475,7 @@ CREATE TABLE `teacher_salary_report` (
   `total_amount` int(11) NOT NULL,
   `status` varchar(11) NOT NULL,
   `paid_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teacher_salary_report`
@@ -518,7 +528,7 @@ CREATE TABLE `time_table` (
   `day` varchar(20) NOT NULL,
   `subject_code` varchar(20) NOT NULL,
   `room_no` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `time_table`
@@ -541,7 +551,7 @@ INSERT INTO `time_table` (`id`, `course_code`, `semester`, `timing_from`, `timin
 CREATE TABLE `weekdays` (
   `day_id` int(11) NOT NULL,
   `day_name` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `weekdays`
@@ -679,13 +689,13 @@ ALTER TABLE `class_result`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `session_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `student_attendance`
