@@ -70,9 +70,22 @@
 								<label for="exampleInputEmail1">Course which you want?: </label>
 								<select class="browser-default custom-select" name="course_code">
 									<option>Select Course</option>
-									<option>BA English</option>
-									<option>BA Economics</option>
-									<option>BA Sanskrit</option>
+									<option>D. Pharm</option>
+									<option>B.A. (Hons.) English</option>
+									<option>B.A. (Hons.) Economics</option>
+									<option>B.A. (Hons.) Sanskrit</option>
+									<option>B.A. LL.B (Hons.)</option>
+									<option>B.B.A. LL.B (Hons.)</option>
+									<option>B.B.A. in Stock Broking and Portfolio Management</option>
+									<option>LL.B</option>
+									<option>BCA</option>
+									<option>MCA</option>
+									<option>B.Tech in Civil Engineering</option>
+									<option>B.Tech in Computer Science Engineering</option>
+									<option>B.Tech in Electronics and Communication Engineering</option>
+									<option>B.Tech in Electricals and Electronics Engineering</option>
+									<option>B.Sc. in Yogic Science</option>
+									<option>M.Sc. in Yogic Scirence</option>
 									<?php
 										$query="select course_code from courses";
 										$run=mysqli_query($con,$query);
