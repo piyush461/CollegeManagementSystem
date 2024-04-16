@@ -13,9 +13,8 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark header-back sticky-top header-navbar-fonts">
-	<a class="navbar-brand d-flex align-items-center" href="index.php">
-		<img src="images/icbs_logo.png" class="logo-image" width="50" height="50">
-		<h3 class="text-light text-uppercase ml-2">ABC College</h3>
+	<a class="navbar-brand d-flex align-items-center sbulogo" href="index.php">
+		<h3 class="text-light text-uppercase ml-2">SARALA BIRLA UNIVERSITY</h3>
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>

@@ -5,7 +5,6 @@
 	{
 		header('location:../login/login.php');
 	}
-	
 	if($_SESSION['LoginStudent']){
 		$_SESSION['LoginAdmin'] = "";
 	}
