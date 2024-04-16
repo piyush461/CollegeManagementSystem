@@ -61,9 +61,18 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">
+								<label for="exampleInputPassword1">Date Of Birth:*</label>
+								<input type="date" name="date_of_birth" class="form-control" required>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
 								<label for="exampleInputEmail1">Course which you want?: </label>
 								<select class="browser-default custom-select" name="course_code">
-									<option >Select Course</option>
+									<option>Select Course</option>
+									<option>BA English</option>
+									<option>BA Economics</option>
+									<option>BA Sanskrit</option>
 									<?php
 										$query="select course_code from courses";
 										$run=mysqli_query($con,$query);
@@ -74,6 +83,7 @@
 								</select>
 							</div>
 						</div>
+					</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="exampleInputPassword1">Select Session:</label>
