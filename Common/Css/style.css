@@ -22,6 +22,9 @@ html, body{
 		height: 50px;
 		width: 50px;
 	}
+
+
+
 	.header-back{
 		background: #35155D;	
 	}
@@ -29,6 +32,8 @@ html, body{
 	.header-navbar-fonts{
 		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 	}
+
+
 
 	.header-navbar-fonts h3{
 		font-size: 35px !important;
@@ -66,7 +71,7 @@ html, body{
 	}
 
 	.sidebar-header{
-		background: #512B81;
+		background: #2c3e50;
 		font-size: 22px !important;
 	}
 
@@ -84,17 +89,10 @@ html, body{
 	}
 
 	.sidebar ul li a:hover{
-		background: #3e5770;
+		background: #4477CE;
 		padding-left: 15px;
 		font-size: 14px;
 		color: #ffffff;
-	}
-
-	.disteach{
-		height: 100vh;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
 	}
 
 	/* sidebar hide and show toggle buttons */
@@ -116,11 +114,12 @@ html, body{
 	}
 
 	.show-btn:hover{
-		background-color: #2c3e50;
+		background-color: #4477CE;
 		color: white;
 		transition: all 1s;
 		border: 1px solid white;
 	}
+	
 	
 	.show-btn i{
 		font-size: 25px !important;
@@ -132,43 +131,6 @@ html, body{
 		transform: translate(0) !important;
 	}
 	
-	.home-div{
-		height: 90vh;
-		width: 100%;
-		background: url('/CollegeManagementSystem-main/Images/campus.jpg');
-		background-size: 100%;
-		background-position: bottom;
-		box-sizing: border-box;
-	}
-
-	.bckbox{
-		width: 100%;
-		height: auto;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1px solid black;
-		background: url(/CollegeManagementSystem-main/Images/imperial-banner.png);
-		height: 60vh;
-		background-position: bottom;
-		padding: 25px;
-	}
-
-	.admbck{
-		margin: 10px;
-		background: rgba( 255, 255, 255, 0.15 );
-		background: rgba( 255, 255, 255, 0.15 );
-		background: rgba( 122, 148, 238, 0.15 );
-		background: rgba( 122, 148, 238, 0.15 );
-		background: rgba( 122, 148, 238, 0.15 );
-		box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-		backdrop-filter: blur( 2px );
-		-webkit-backdrop-filter: blur( 2px );
-		border-radius: 10px;
-		font-weight: 600;
-		color: white;
-	}
-
 
 	.aboutus{
 		height: 90vh;
@@ -309,10 +271,6 @@ html, body{
 	background-attachment: fixed;
 }
 
-.row.text-white.bg-primary.pt-5 {
-	width: 83%;
-}
-
 .overlay {
 	background-color: #000000ab;
 	width: 100%;
@@ -324,12 +282,11 @@ html, body{
 }
 
 .login-div {
-	background: rgba( 255, 255, 255, 0.15 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 3px );
--webkit-backdrop-filter: blur( 3px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+	background: rgba( 255, 255, 255, 0.3 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 3px );
+	-webkit-backdrop-filter: blur( 3px );
+	border-radius: 10px;
 	border: 1px solid rgba( 255, 255, 255, 0.18 );
 	width: 40vw;
 	margin: 0 auto;
@@ -431,6 +388,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 		background: #3e9225e1;
 		color: white;
 	}
+
 	.table-six{
 		background: #5e020af5;
 	}
@@ -444,8 +402,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 		margin-top: 5px !important;
 		background-color: #4477CE;
 	}
+	
 
-		
 	.tr-height{
 		padding: 100px !important;
 	}

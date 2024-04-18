@@ -23,8 +23,6 @@
  		
  		$last_name=$_POST["last_name"];
  		
- 		$father_name=$_POST["father_name"];
- 		
  		$email=$_POST["email"];
  		
  		$mobile_no=$_POST["mobile_no"];
@@ -33,39 +31,13 @@
 
  		$session=$_POST['session'];
  		
- 		$prospectus_issued=$_POST["prospectus_issued"];
- 		
- 		$prospectus_amount=$_POST["prospectus_amount"];
- 		
- 		$form_b=$_POST["form_b"];
- 		
  		$applicant_status=$_POST["applicant_status"];
  		
  		$application_status=$_POST["application_status"];
  		
- 		$cnic=$_POST["cnic"];
- 		
  		$dob=$_POST["dob"];
  		 		
  		$gender=$_POST["gender"];
- 		
-		$permanent_address=$_POST["permanent_address"];
- 		
- 		$current_address=$_POST["current_address"];
- 		
- 		$place_of_birth=$_POST["place_of_birth"];
- 		
- 		$matric_complition_date=$_POST["matric_complition_date"];
- 		
- 		$matric_awarded_date=$_POST["matric_awarded_date"];
- 		
- 		$fa_complition_date=$_POST["fa_complition_date"];
- 		
- 		$fa_awarded_date=$_POST["fa_awarded_date"];
- 		
- 		$ba_complition_date=$_POST["ba_complition_date"];
- 		
- 		$ba_awarded_date=$_POST["ba_awarded_date"];
 
  		$password=$_POST['password'];
 
@@ -73,19 +45,8 @@
 
  		
 
-// *****************************************Images upload code starts here********************************************************** 
-		$profile_image = $_FILES['profile_image']['name'];$tmp_name=$_FILES['profile_image']['tmp_name'];$path = "images/".$profile_image;move_uploaded_file($tmp_name, $path);
 
-		$matric_certificate = $_FILES['matric_certificate']['name'];$tmp_name=$_FILES['matric_certificate']['tmp_name'];$path = "images/".$matric_certificate;move_uploaded_file($tmp_name, $path);
-
-		$fa_certificate = $_FILES['fa_certificate']['name'];$tmp_name=$_FILES['fa_certificate']['tmp_name'];$path = "images/".$fa_certificate;move_uploaded_file($tmp_name, $path);
-
-		$ba_certificate = $_FILES['ba_certificate']['name'];$tmp_name=$_FILES['ba_certificate']['tmp_name'];$path = "images/".$ba_certificate;move_uploaded_file($tmp_name, $path);
-
-
-// *****************************************Images upload code end here********************************************************** 
-
- 		$query="Insert into student_info(roll_no,first_name,middle_name,last_name,father_name,email,mobile_no,course_code,session,profile_image,prospectus_issued,prospectus_amount,form_b,applicant_status,application_status,cnic,dob,gender,permanent_address,current_address,place_of_birth,matric_complition_date,matric_awarded_date,matric_certificate,fa_complition_date,fa_awarded_date,fa_certificate,ba_complition_date,ba_awarded_date,ba_certificate)values('$roll_no','$first_name','$middle_name','$last_name','$father_name','$email','$mobile_no','$course_code','$session','$profile_image','$prospectus_issued','$prospectus_amount','$form_b','$applicant_status','$application_status','$cnic','$dob','$gender','$permanent_address','$current_address','$place_of_birth','$matric_complition_date','$matric_awarded_date','$matric_certificate','$fa_complition_date','$fa_awarded_date','$fa_certificate','$ba_complition_date','$ba_awarded_date','$ba_certificate')";
+ 		$query="Insert into student_info(roll_no,first_name,middle_name,last_name,email,mobile_no,course_code,session,dob,gender)values('$roll_no','$first_name','$middle_name','$last_name','$email','$mobile_no','$course_code','$session','$dob','$gender')";
  		$run=mysqli_query($con, $query);
  		if ($run) {
  			echo "Your Data has been submitted";
@@ -179,12 +140,6 @@
 								  		</div>
 								  		<div class="row">
 											<div class="col-md-4">
-											    <div class="form-group">
-											        <label for="exampleInputEmail1">Father Name:*</label>
-											        <input type="text" name="father_name" class="form-control" required>
-											    </div>
-											</div>
-											<div class="col-md-4">
 												<div class="form-group">
 												    <label for="exampleInputPassword1">Student Roll No:</label>
 												    <input type="text" name="roll_no" class="form-control">
@@ -196,8 +151,6 @@
 												    <input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
 											    </div>
 											</div>
-								  		</div>
-								  		<div class="row">
 											<div class="col-md-4">
 											    <div class="form-group">
 											        <label for="exampleInputEmail1">Course which you want?: </label>
@@ -213,6 +166,9 @@
 													</select>
 											    </div>
 											</div>
+								  		</div>
+								  		<div class="row">
+											
 											<div class="col-md-4">
 												<div class="form-group">
 												    <label for="exampleInputPassword1">Select Session:</label>
@@ -226,45 +182,8 @@
 															}
 														?>
 													</select>
-
 											    </div>
 											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Your Profile Image:</label>
-												    <input type="file" name="profile_image" placeholder="Student Age" class="form-control">
-											    </div>
-											</div>
-								  		</div>
-								  		<div class="row">
-											<div class="col-md-4">
-											    <div class="form-group">
-											        <label for="exampleInputEmail1">Prospectus Issude: </label>
-											        <select class="browser-default custom-select" name="prospectus_issued">
-													  <option>Select Option</option>
-													  <option value="Yes">Yes</option>
-													  <option value="No">No</option>
-													</select>
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Prospectus Amount Recvd:</label>
-												    <select class="browser-default custom-select" name="prospectus_amount">
-													  <option>Select Option</option>
-													  <option value="Yes">Yes</option>
-													  <option value="No">No</option>
-													</select>
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Form B:</label>
-												    <input type="text" name="form_b" class="form-control">
-											    </div>
-											</div>
-								  		</div>
-								  		<div class="row">
 											<div class="col-md-4">
 											    <div class="form-group">
 											        <label for="exampleInputEmail1">Applicant Status: </label>
@@ -283,12 +202,6 @@
 													  <option value="Approved">Approved</option>
 													  <option value="Not Approved">Not Approved</option>
 													</select>
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">CNIC No:</label>
-												    <input type="text" name="cnic" data-inputmask="'mask': '99999-9999999-9'" placeholder="XXXXX-XXXXXXX-X" class="form-control">
 											    </div>
 											</div>
 								  		</div>
@@ -313,86 +226,6 @@
 													  <option value="Male">Male</option>
 													  <option value="Female">Female</option>
 													</select>
-											    </div>
-											</div>
-								  		</div>
-								  		<div class="row">
-											<div class="col-md-4">
-											    <div class="form-group">
-											        <label for="exampleInputEmail1">Permanent Address: </label>
-											        <input type="text" name="permanent_address" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Current Address:</label>
-												    <input type="text" name="current_address" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Place of Birth:</label>
-												    <input type="text" name="place_of_birth" class="form-control">
-											    </div>
-											</div>
-								  		</div>
-								  		<div class="row">
-											<div class="col-md-4">
-											    <div class="form-group">
-											        <label for="exampleInputEmail1">Matric/OLevel Complition Date: </label>
-											        <input type="date" name="matric_complition_date" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Matric/OLevel Awarded Date:</label>
-												    <input type="date" name="matric_awarded_date" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Upload Matric/OLevel Certificate:</label>
-												    <input type="file" name="matric_certificate" class="form-control" value="there is no image">
-											    </div>
-											</div>
-								  		</div>
-								  		<div class="row">
-											<div class="col-md-4">
-											    <div class="form-group">
-											        <label for="exampleInputEmail1">FA/ALevel Complition Date: </label>
-											        <input type="date" name="fa_complition_date" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">FA/ALevel Awarded Date:</label>
-												    <input type="date" name="fa_awarded_date" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Upload FA/ALevel Certificate:</label>
-												    <input type="file" name="fa_certificate" class="form-control" value="there is no image" >
-											    </div>
-											</div>
-								  		</div>
-								  		<div class="row">
-											<div class="col-md-4">
-											    <div class="form-group">
-											        <label for="exampleInputEmail1">BA Complition Date: </label>
-											        <input type="date" name="ba_complition_date" class="form-control" value="0">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">BA Awarded Date:</label>
-												    <input type="date" name="ba_awarded_date" class="form-control">
-											    </div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-												    <label for="exampleInputPassword1">Upload BA Certificate:</label>
-												    <input type="file" value="C:/xampp/htdocs/Imperial University/Images/no-image-available.jpg" name="ba_certificate" class="form-control" >
 											    </div>
 											</div>
 								  		</div>
@@ -512,7 +345,7 @@
 									<th colspan="1">Operations</th>
 								</tr>
 								<?php 
-								$query="select first_name,middle_name,admission_date,last_name,current_address,session,roll_no,form_b ,profile_image,course_code from student_info";
+								$query="select first_name,middle_name,admission_date,last_name,current_address,session,roll_no,course_code from student_info";
 								$run=mysqli_query($con,$query);
 								while($row=mysqli_fetch_array($run)) {?>
 									<tr>
@@ -523,9 +356,6 @@
 										<td><?php echo $row["course_code"] ?></td>
 										<!-- date_format($date,"Y/m/d H:i:s"); -->
 										<td><?php echo date("Y-M-d",strtotime($row["admission_date"])); ?></td>
-										<td><?php  $profile_image= $row["profile_image"] ?>
-										<img height='50px' width='50px' src=<?php echo "images/$profile_image"  ?> >
-										</td>
 										<td width='170'> 
 											<?php 
 												echo "<a class='btn btn-primary' href=display-student.php?roll_no=".$row['roll_no'].">Profile</a> 

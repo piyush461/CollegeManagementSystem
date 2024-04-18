@@ -1,4 +1,4 @@
-<<!---------------- Session starts form here ----------------------->
+<!---------------- Session starts form here ----------------------->
 <?php  
 	session_start();
 	if (!$_SESSION["LoginAdmin"])
@@ -209,11 +209,11 @@
 								<div class="col-md-12">
 									<table class="w-100 table-elements table-three-tr" cellpadding="3">
 										<tr class="table-tr-head table-three text-white">
-											<td colspan="5" class="text-center text-white"><h4>Classes Time Table</h4></td>
-											<td width="10" >											
+											<td colspan="5" class="text-center text-white" style="background-color: #512B81;"><h4>Classes Time Table</h4></td>
+											<td width="10" style="background-color: #35155D;">											
 											<div class="row">
 												<div class="col-md-12">
-													<div class="col-md-1 mt-2"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg1">Update</button>
+													<div class="col-md-1 mt-2" ><button type="button"  class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg1">Update</button>
 													</div>
 													<!-- Large modal -->
 													<div class="modal fade bd-example-modal-lg1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -335,7 +335,7 @@
 											$query="select id,course_code,TIME_FORMAT(timing_from,'%h:%i %p') as timing_from,TIME_FORMAT(timing_to,'%h:%i %p') as timing_to,semester,day_name,day_id,day,subject_code,room_no from time_table tt inner join weekdays wd on tt.day=wd.day_id";
 											$run=mysqli_query($con,$query);
 											while($row=mysqli_fetch_array($run)) {
-												echo "<tr>";
+												echo "<tr >";
 												echo "<td>".$row["id"]."</td>";
 												echo "<td>".$row["course_code"]." ".$row["semester"]."</td>";
 												echo "<td>" .$row["timing_from"]."<br>".$row["timing_to"]."</td>";

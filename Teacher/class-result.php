@@ -93,7 +93,7 @@ if (isset($_POST['sub'])) {
 					<div class="col-md-12 ml-2">
 						<section class="mt-3">
 							<table class="w-100 table-elements mb-5 table-three-tr"cellpadding="5" >
-								<tr class="table-tr-head text-white table-three">
+								<tr class="table-tr-head text-white table-three" style="background-color: #512B81 !important">
 									<th>Sr.No</th>
 									<th>Roll No</th>
 									<th>Cource Name</th>

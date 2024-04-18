@@ -16,7 +16,7 @@ html {
 }
 
 .container {
-  width: 100%;
+  width: 50%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -56,12 +56,13 @@ html {
 }
 
 .row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+ .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: 17%;
+}
 }
 
 .no-gutters {

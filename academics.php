@@ -8,7 +8,7 @@
 	<div class="container-fluid">
 		<div class="row mb-5">
 			<div class="academic-area-headings">
-				<h4 class="py-4">Faculty of Engineering and Computer Science</h4>
+				<h4 class="py-4  ">Faculty of Engineering and Computer Science</h4>
 			</div>
 			<div class="container">
 				<div class="row">
@@ -29,7 +29,7 @@
 	<div class="container-fluid">
 		<div class="row mb-5">
 			<div class="academic-area-headings">
-				<h4 class="py-4">Faculty of Commerce and Business Administration</h4>
+				<h4 class="py-4  ">Faculty of Commerce and Business Administration</h4>
 			</div>
 			<div class="container">
 				<div class="row">
@@ -55,7 +55,7 @@
 	<div class="container-fluid">
 		<div class="row mb-5">
 			<div class="academic-area-headings">
-				<h4 class="py-4">Faculty of Humanities and Linguistics</h4>
+				<h4 class="py-4  ">Faculty of Humanities and Linguistics</h4>
 			</div>
 			<div class="container">
 				<div class="row">
@@ -73,7 +73,7 @@
 	<div class="container-fluid">
 		<div class="row mb-5">
 			<div class="academic-area-headings">
-				<h4 class="py-4">Faculty of Legal studies</h4>
+				<h4 class="py-4  ">Faculty of Legal studies</h4>
 			</div>
 			<div class="container">
 				<div class="row">

@@ -27,8 +27,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<section class="border mt-3">
-							<table border="1" class="w-100 table-striped table-dark"cellpadding="5" >
-								<tr>
+							<table border="1" style="background-color: #8CABFF;" class="w-100 table-striped tcourse" cellpadding="5" >
+								<tr style="background-color: #4477CE;">
 									<th>Sr.No</th>
 									<th>Course Name</th>
 									<th>Subject Name</th>
@@ -45,7 +45,7 @@
 								while($row=mysqli_fetch_array($run1)) {
 									$teacher_id=$row["teacher_id"];
 								}
-								$query="select tc.teacher_id,tc.course_code,tc.subject_code,tc.semester,tc.total_classes,tt.room_no,tt.timing_to from teacher_courses tc inner join time_table tt on tc.subject_code=tt.subject_code where teacher_id='$teacher_id'";
+								$query="select teacher_courses.teacher_id,teacher_courses.course_code,teacher_courses.subject_code,teacher_courses.semester,teacher_courses.total_classes,time_table.room_no,time_table.timing_to from teacher_courses inner join time_table on teacher_courses.subject_code=time_table.subject_code where teacher_id='$teacher_id'";
 								$run=mysqli_query($con,$query);
 								while($row=mysqli_fetch_array($run)) {
 									echo "<tr>";

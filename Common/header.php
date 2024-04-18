@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home-College Of Business Studies</title>
+	<title>Home- SBU CMS</title>
 	<link rel="shortcut icon" href="./Images/icbs_logo.png" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
@@ -14,6 +14,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark header-back sticky-top header-navbar-fonts">
 	<a class="navbar-brand d-flex align-items-center sbulogo" href="index.php">
+	<img src="Images\logosbu2.png" class="logo-image">
 		<h3 class="text-light text-uppercase ml-2">SARALA BIRLA UNIVERSITY</h3>
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

@@ -16,110 +16,99 @@
 			</div>
 		</div>
 		<div class="row m-3">
-			<div class="col-md-12">
-				<form action="student.php" method="POST" enctype="multipart/form-data">
-					<div class="row mt-3">
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Applicant First Name:*</label>
-								<input type="text" name="first_name" class="form-control" required>
+			<div class="bckbox">
+				<div class="col-md-12 admbck">
+					<form action="student.php" method="POST" enctype="multipart/form-data">
+						<div class="row mt-3">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Applicant First Name:*</label>
+									<input type="text" name="first_name" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1">Applicant Middle Name:</label>
+									<input type="text" name="middle_name" class="form-control">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1" required>Applicant Last Name:*</label>
+									<input type="text" name="last_name" class="form-control">
+								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1">Applicant Middle Name:</label>
-								<input type="text" name="middle_name" class="form-control">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Father Name:*</label>
+									<input type="text" name="father_name" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1">Applicant Email:*</label>
+									<input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1">Mobile No:*</label>
+									<input type="number" name="mobile_no" class="form-control" required>
+								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1" required>Applicant Last Name:*</label>
-								<input type="text" name="last_name" class="form-control">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1">Date Of Birth:*</label>
+									<input type="date" name="date_of_birth" class="form-control" required>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Course which you want?: </label>
+									<select class="browser-default custom-select" name="course_code">
+										<option>Select Course</option>
+										<option>BA English</option>
+										<option>BA Economics</option>
+										<option>BA Sanskrit</option>
+										<?php
+											$query="select course_code from courses";
+											$run=mysqli_query($con,$query);
+											while($row=mysqli_fetch_array($run)) {
+												echo	"<option value=".$row['course_code'].">".$row['course_code']."</option>";
+											}
+										?>
+									</select>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Father Name:*</label>
-								<input type="text" name="father_name" class="form-control" required>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1">Applicant Email:*</label>
-								<input type="email" name="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1">Mobile No:*</label>
-								<input type="number" name="mobile_no" class="form-control" required>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1">Date Of Birth:*</label>
-								<input type="date" name="date_of_birth" class="form-control" required>
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputEmail1">Course which you want?: </label>
-								<select class="browser-default custom-select" name="course_code">
-									<option>Select Course</option>
-									<option>D. Pharm</option>
-									<option>B.A. (Hons.) English</option>
-									<option>B.A. (Hons.) Economics</option>
-									<option>B.A. (Hons.) Sanskrit</option>
-									<option>B.A. LL.B (Hons.)</option>
-									<option>B.B.A. LL.B (Hons.)</option>
-									<option>B.B.A. in Stock Broking and Portfolio Management</option>
-									<option>LL.B</option>
-									<option>BCA</option>
-									<option>MCA</option>
-									<option>B.Tech in Civil Engineering</option>
-									<option>B.Tech in Computer Science Engineering</option>
-									<option>B.Tech in Electronics and Communication Engineering</option>
-									<option>B.Tech in Electricals and Electronics Engineering</option>
-									<option>B.Sc. in Yogic Science</option>
-									<option>M.Sc. in Yogic Scirence</option>
-									<?php
-										$query="select course_code from courses";
-										$run=mysqli_query($con,$query);
-										while($row=mysqli_fetch_array($run)) {
-											echo	"<option value=".$row['course_code'].">".$row['course_code']."</option>";
-										}
-									?>
-								</select>
-							</div>
-						</div>
-					</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1">Select Session:</label>
-								<select class="browser-default custom-select" name="session">
-									<option >Select Session</option>
-									<?php
-										$query="select session from sessions";
-										$run=mysqli_query($con,$query);
-										while($row=mysqli_fetch_array($run)) {
-											echo	"<option value=".$row['session'].">".$row['session']."</option>";
-										}
-									?>
-								</select>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1">Select Session:</label>
+									<select class="browser-default custom-select" name="session">
+										<option >Select Session</option>
+										<?php
+											$query="select session from sessions";
+											$run=mysqli_query($con,$query);
+											while($row=mysqli_fetch_array($run)) {
+												echo	"<option value=".$row['session'].">".$row['session']."</option>";
+											}
+										?>
+									</select>
 
+								</div>
 							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="form-group">
-								<label for="exampleInputPassword1">Your Profile Image:</label>
-								<input type="file" name="profile_image" placeholder="Student Age" class="form-control">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label for="exampleInputPassword1">Your Profile Image:</label>
+									<input type="file" name="profile_image" placeholder="Student Age" class="form-control">
+								</div>
 							</div>
-						</div>
-					</div>
+				</div>
+		</div>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">
