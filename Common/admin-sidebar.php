@@ -15,61 +15,56 @@
         </div>   
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="../admin/Teacher.php">
-              <span data-feather="file"></span>
-              <i class="fa fa-user mr-2" aria-hidden="true"></i>Teacher Registration
-            </a>
-		      </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/Student.php">
+            <a class="nav-link" href="../admin/Student.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="shopping-cart"></span>
               <i class="fa fa-user-circle mr-2" aria-hidden="true"></i> Student Registration
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/Courses.php">
+            <a class="nav-link" href="../admin/Courses.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="users"></span>
               <i class="fa fa-book mr-2" aria-hidden="true"></i>Courses
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/subjects.php">
+            <a class="nav-link" href="../admin/subjects.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="bar-chart-2"></span>
               <i class="fa fa-file-text-o mr-2" aria-hidden="true"></i> Subjects
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/time-table.php">
+            <a class="nav-link" href="../admin/time-table.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="layers"></span>
                <i class="fa fa-clock-o mr-2" aria-hidden="true"></i> Time Table
             </a>
 		  </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/class-result.php">
+            <a class="nav-link" href="../admin/class-result.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="layers"></span>
               <i class="fa fa-users mr-2" aria-hidden="true"></i> Class Results
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/student-attendance.php">
+            <a class="nav-link" href="../admin/student-attendance.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="layers"></span>
               <i class="fa fa-check-square-o mr-2" aria-hidden="true"></i> Student Attendance
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/teacher-attendance.php">
+            <a class="nav-link" href="../admin/teacher-attendance.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="layers"></span>
               <i class="fa fa-check-square mr-2" aria-hidden="true"></i> Teacher Attendance
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/student-fee.php">
+            <a class="nav-link" href="../admin/student-fee.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="layers"></span>
               <i class="fa fa-credit-card-alt mr-2" aria-hidden="true"></i> Student Fee
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../admin/manage-accounts.php">
+            <a class="nav-link" href="../admin/manage-accounts.php" onmouseover="this.style.backgroundColor='#4477CE'" onmouseout="this.style.backgroundColor=''">
               <span data-feather="layers"></span>
               <i class="fa fa-key mr-2" aria-hidden="true"></i> Manage Account
             </a>

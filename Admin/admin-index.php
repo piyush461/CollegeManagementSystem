@@ -1,14 +1,49 @@
  <!---------------- Session starts form here ----------------------->
-	<?php  
-	session_start();
-	if (!$_SESSION["LoginAdmin"])
-	{
-		header('location:../login/login.php');
-	}
-		require_once "../connection/connection.php";
-	?>
+ <?php 
+    error_reporting(E_ALL); 
+    ini_set('display_errors', 1);
+    session_start();
+    require_once "../connection/connection.php"; 
+    $message = ""; // Initialize the message variable
+
+    if(isset($_POST["btnlogin"])) {
+        $username = $_POST["email"];
+        $password = $_POST["password"];
+
+        $query = "SELECT * FROM login WHERE user_id='$username'"; // Removed password from query
+        $result = mysqli_query($con, $query);
+
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    if ($password == $row["Password"]) { // For plain text password (not recommended)
+                        if ($row["Role"] == "Admin") {
+                            $_SESSION['LoginAdmin'] = $row["user_id"];
+                            header('Location: ../admin/admin-index.php');
+                            exit();
+                        } else if ($row["Role"] == "Teacher" && $row["account"] == "Activate") {
+                            $_SESSION['LoginTeacher'] = $row["user_id"];
+                            header('Location: ../teacher/teacher-index.php');
+                            exit();
+                        } else if ($row["Role"] == "Student" && $row["account"] == "Activate") {
+                            $_SESSION['LoginStudent'] = $row['user_id'];
+                            header('Location: ../student/student-index.php');
+                            exit();
+                        }
+                    } else {
+                        $message = "Email Or Password Does Not Match";
+                    }
+                }
+            } else {
+                $message = "No user found with this email.";
+            }
+        } else {
+            $message = "Query failed: " . mysqli_error($con);
+        }
+    }
+?>
 <!---------------- Session Ends form here ------------------------>
-<title>Admin - ICBS</title>
+<title>Admin - SBU CMS</title>
 	<?php include('../common/common-header.php') ?>
 	<?php include('../common/admin-sidebar.php') ?>  
 		<main role="main" class="col-xl-10 col-lg-9 col-md-8 ml-sm-auto px-md-4 mb-2 w-100 page-content-index">

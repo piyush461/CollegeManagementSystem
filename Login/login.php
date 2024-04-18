@@ -17,12 +17,12 @@ session_start();
                     $_SESSION['LoginAdmin']=$row["user_id"];
                     header('Location: ../admin/admin-index.php');
                 }
-                else if ($row["Role"]=="Teacher" and $row["account"]=="Activate")
+                else if ($row["Role"]=="Teacher")
                 {
                     $_SESSION['LoginTeacher']=$row["user_id"];
                     header('Location: ../teacher/teacher-index.php');
                 }
-                else if ($row["Role"]=="Student" and $row["account"]=="Activate")
+                else if ($row["Role"]=="Student")
                 {
                     $_SESSION['LoginStudent']=$row['user_id'];
                     header('Location: ../student/student-index.php');
@@ -36,37 +36,35 @@ session_start();
     }
 ?>
 
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<title>Login - ICBS</title>
-	</head>
-	<body class="login-background">
-		<?php include('../common/common-header.php') ?>
-        <div class="login-div mt-3 rounded">
-            <div class="logo-div text-center">
-                <img src="../Images/icbs_logo.png" alt="" class="align-items-center" width="100" height="100">
+<head>
+    <title>Login - SBU CMS</title>
+</head>
+<body class="login-background">
+<?php include('../Common/common-header.php') ?>
+<div class="login-div mt-3 rounded">
+    <div class="logo-div">
+        <img src="../Images/logosbu.png" alt="SBULogo" class="logo-image">
+    </div>
+    <div class="login-padding">
+        <h2 class="text-center text-white">LOGIN</h2>
+        <form class="p-1" action="login.php" method="POST">
+            <div class="form-group">
+                <label><h6>Enter Your ID/Email:</h6></label>
+                <input type="text" name="email" placeholder="Enter User ID" class="form-control input" required>
             </div>
-            <div class="login-padding">
-                <h2 class="text-center text-white">LOGIN</h2>
-                <form class="p-1" action="login.php" method="POST">
-                    <div class="form-group">
-                        <label><h6>Enter Your ID/Email:</h6></label>
-                        <input type="text" name="email" placeholder="Enter User ID" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label><h6>Enter Password:</h6></label>
-                        <input type="Password" name="password" placeholder="Enter Password" class="form-control border-bottom" required>
-                        <!-- <?php echo $message; ?> -->
-                    </div>
-                    <div class="form-group text-center mb-3 mt-4">
-                        <input type="submit" name="btnlogin" value="LOGIN" class="btn btn-white pl-5 pr-5 ">
-                    </div>
-                </form>
+            <div class="form-group">
+                <label><h6>Enter Password:</h6></label>
+                <input type="Password" name="password" placeholder="Enter Password" class="form-control border-bottom input" required>
+                <!-- <?php echo $message; ?> -->
             </div>
-        </div>
-    </body>
+            <div class="form-group text-center mb-3 mt-4">
+                <input type="submit" name="btnlogin" value="LOGIN" class="btn btn-white pl-5 pr-5 ">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
 </html>
-
-
-

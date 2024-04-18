@@ -4,4 +4,3 @@
 	{
 		echo "Connection is not Successfully";
 	}
-?>

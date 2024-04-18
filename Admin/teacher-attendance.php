@@ -1,4 +1,4 @@
-<<!---------------- Session starts form here ----------------------->
+<!---------------- Session starts form here ----------------------->
 <?php  
 	session_start();
 	if (!$_SESSION["LoginAdmin"])
@@ -65,7 +65,7 @@ if (isset($_POST['sub'])) {
 					<div class="col-md-12 ml-2">
 						<section class="border mt-3">
 							<table class="w-100 table-elements table-three-tr" cellpadding="3">
-									<tr class="table-tr-head table-three text-white">
+									<tr class="table-tr-head table-three text-white" style="background-color: #512B81 !important">
 									<!-- Default checked -->
 									<th>Sr.No</th>
 									<th>Teacher ID</th>

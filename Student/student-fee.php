@@ -28,10 +28,10 @@
 					<div class="col-md-12">
 						<section class="border mt-3">
 							<table class="w-100 table-striped table-hover table-dark" cellpadding="10">
-								<tr>
-									<th colspan="9"><h4 class="text-center">Student Fee Detail</h4 class="text-center"></th>
+								<tr style="border: 1px solid white !important;">
+									<th colspan="9" style="background-color: #512B81 !important; border: .5px solid white !important;"><h4 class="text-center">Student Fee Detail</h4 class="text-center"></th>
 								</tr>
-								<tr>
+								<tr style="background-color: #512B81 !important">
 									<th>Voucher No.</th>
 									<th>Roll No.</th>
 									<th>Student Name</th>
@@ -45,7 +45,7 @@
 									$query="select fee_voucher,student_fee.roll_no,first_name,middle_name,last_name,course_code,amount,date(posting_date) as posting_date,status from student_fee inner join student_info on student_fee.roll_no=student_info.roll_no where student_fee.roll_no='$roll_no'";
 									$run=mysqli_query($con,$query);
 									while ($row=mysqli_fetch_array($run)) { ?>
-									<tr>
+									<tr style="background-color: #4477CE !important">
 										<td><?php echo $row['fee_voucher'] ?></td>
 										<td><?php echo $row['roll_no'] ?></td>
 										<td><?php echo $row['first_name']." ".$row['middle_name']." ".$row['last_name'] ?></td>

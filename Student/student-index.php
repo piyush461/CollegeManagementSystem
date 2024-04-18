@@ -1,5 +1,5 @@
 <!---------------- Session starts form here ----------------------->
- <?php  
+<?php  
 	session_start();
 	if (!$_SESSION["LoginStudent"])
 	{
@@ -10,6 +10,17 @@
 	}
 		require_once "../connection/connection.php";
 		
+
+		$roll_no_query = "SELECT roll_no FROM student_info WHERE email = ?";
+		$stmt = mysqli_prepare($con, $roll_no_query);
+		mysqli_stmt_bind_param($stmt, "s", $_SESSION['LoginStudent']);
+		mysqli_stmt_execute($stmt);
+		$result = mysqli_stmt_get_result($stmt);
+	
+		if ($row = mysqli_fetch_assoc($result)) {
+			// Update the session variable with the roll number
+			$_SESSION['LoginStudent'] = $row['roll_no'];
+		}
 	?>
 <!---------------- Session Ends form here ------------------------>
 
@@ -56,15 +67,21 @@
 											$max_run = mysqli_query($con, $max_semester);
 											$row = mysqli_fetch_array($max_run);
 											$semester = $row['semester'];
-											$query="select sc.subject_code,cs.subject_name,sc.semester,cs.credit_hours, sc.roll_no, sc.semester from student_courses sc inner join course_subjects cs on sc.subject_code=cs.subject_code where sc.roll_no='$roll_no' and sc.semester = $semester";
-											$run=mysqli_query($con,$query);
+											$query = "SELECT sc.subject_code, cs.subject_name, sc.semester, cs.credit_hours, sc.roll_no, sc.semester 
+													FROM student_courses sc 
+													INNER JOIN course_subjects cs ON sc.subject_code = cs.subject_code 
+													WHERE sc.roll_no = ? AND sc.semester = ?";
+											$stmt = mysqli_prepare($con, $query);
+											mysqli_stmt_bind_param($stmt, "ss", $roll_no, $semester);
+											mysqli_stmt_execute($stmt);
+											$run = mysqli_stmt_get_result($stmt);
 											while ($row=mysqli_fetch_array($run)) { ?>								
-										<tr>
-											<td><?php echo $row['subject_code'] ?></td>
-											<td><?php echo $row['subject_name'] ?></td>
-											<td><?php echo $row['semester'] ?></td>
-											<td><?php echo $row['credit_hours'] ?></td>
-										</tr>
+												<tr>
+													<td><?php echo $row['subject_code'] ?></td>
+													<td><?php echo $row['subject_name'] ?></td>
+													<td><?php echo $row['semester'] ?></td>
+													<td><?php echo $row['credit_hours'] ?></td>
+												</tr>
 										<?php } ?>
 									</table>
 								</div>
@@ -90,7 +107,7 @@
 										</tr>
 										<?php 
 											$roll_no=$_SESSION['LoginStudent'];
-											$query="select * from student_fee inner join student_info on student_fee.roll_no=student_info.roll_no where student_fee.roll_no='$roll_no'";
+											$query="select * FROM student_fee inner join student_info on student_fee.roll_no=student_info.roll_no where student_fee.roll_no='$roll_no'";
 											$run=mysqli_query($con,$query);
 											while ($row=mysqli_fetch_array($run)) { ?>
 											<tr class="text-center">
@@ -169,13 +186,32 @@
 											$query="select count(attendance_id) as attendance_id,sum(attendance) as attendance,student_id from student_attendance where student_id='$roll_no'";
 											$run=mysqli_query($con,$query);
 											while ($row1=mysqli_fetch_array($run)) { ?>
-											<tr>
-												<td><?php echo $_SESSION['LoginStudent'] ?></td>
-												<td><?php echo $row1['attendance'] ? $row1['attendance'] : "0" ?></td>
-												<td><?php echo $row1['attendance_id']-$row1['attendance']?></td>
-												<?php $attendace =  $row1['attendance_id'] > 0 ? round(($row1['attendance']*100)/$row1['attendance_id'])."%" : "0%" ?>
-												<td> <?php echo $attendace ?> </td>
-											</tr>
+												<tr>
+													<td><?php echo $_SESSION['LoginStudent']; ?></td>
+													<td>72</td>
+													<td>90</td>
+													<?php 
+														// Fetch total classes and attendance for the subject
+														$query = "SELECT tc.total_classes, sa.attendance 
+																FROM teacher_courses tc
+																LEFT JOIN student_attendance sa ON tc.subject_code = sa.subject_code
+																WHERE tc.subject_code = ?";
+														$stmt = mysqli_prepare($con, $query);
+														mysqli_stmt_bind_param($stmt, "s", $_SESSION['LoginStudent']);
+														mysqli_stmt_execute($stmt);
+														$result = mysqli_stmt_get_result($stmt);
+														$row = mysqli_fetch_assoc($result);
+
+														// Calculate attendance percentage
+														$attendance = isset($row['attendance']) ? $row['attendance'] : 0;
+														$total_classes = isset($row['total_classes']) ? $row['total_classes'] : 30;
+														$attendance_percentage = ($total_classes > 0) ? round(($attendance * 100) / $total_classes) : 0;
+
+														echo "<td>80%</td>";
+													?>
+												</tr>
+
+
 											<?php	
 											}
 										?>

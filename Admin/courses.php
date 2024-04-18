@@ -1,4 +1,4 @@
-<<!---------------- Session starts form here ----------------------->
+<!---------------- Session starts form here ----------------------->
 <?php  
 	session_start();
 	if (!$_SESSION["LoginAdmin"])
@@ -88,7 +88,7 @@
 					<div class="col-md-12 ml-2">
 						<section class="mt-3">
 							<table class="w-100 table-elements mb-5 table-three-tr" cellpadding="3">
-								<tr class="table-tr-head table-three text-white">
+								<tr class="table-tr-head table-three text-white" style="background-color: #512B81 !important">
 									<th>Sr.No</th>
 									<th>Course Code</th>
 									<th>Cource Name</th>

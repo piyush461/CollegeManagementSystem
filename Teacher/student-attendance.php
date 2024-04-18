@@ -52,7 +52,7 @@ if (isset($_POST['sub'])) {
 											<option >Select Course</option>
 											<?php
 											$teacher_id=$_SESSION['teacher_id'];
-											$query="select distinct(course_code) from teacher_courses where teacher_id='$teacher_id'";
+											$query="select distinct(course_code) from time_table";
 											$run=mysqli_query($con,$query);
 											while($row=mysqli_fetch_array($run)) {
 											echo	"<option value=".$row['course_code'].">".$row['course_code']."</option>";
@@ -74,7 +74,7 @@ if (isset($_POST['sub'])) {
 											<option >Select Subject</option>
 											<?php
 											$teacher_id=$_SESSION['teacher_id'];
-											$query="select distinct(subject_code) from teacher_courses where teacher_id='$teacher_id'";
+											$query="select distinct(subject_code) from time_table";
 											$run=mysqli_query($con,$query);
 											while($row=mysqli_fetch_array($run)) {
 											echo	"<option value=".$row['subject_code'].">".$row['subject_code']."</option>";
@@ -94,7 +94,7 @@ if (isset($_POST['sub'])) {
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<section class="mt-3">
 							<table class="table-elements mb-5 table-three-tr" cellpadding="5" >
-								<tr class="table-tr-head text-white table-three">
+								<tr class="table-tr-head text-white table-three" style="background-color: #512B81 !important">
 									<th>Sr.No</th>
 									<th>Roll No</th>
 									<th>Course Name</th>
