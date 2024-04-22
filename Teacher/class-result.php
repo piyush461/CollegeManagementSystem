@@ -140,7 +140,6 @@ if (isset($_POST['sub'])) {
 									}
 									}
 								?>
-								<input type="submit" name="sub">
 
 								</form>
 							</table>				
