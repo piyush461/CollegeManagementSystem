@@ -337,7 +337,6 @@
 								<tr class="table-tr-head table-three text-white">
 									<th>Roll.No</th>
 									<th>Student Name</th>
-									<th>Current Address</th>
 									<th>Session</th>
 									<th>Course ID</th>
 									<th>Admission</th>
@@ -351,14 +350,19 @@
 									<tr>
 										<td><?php echo $row["roll_no"] ?></td>
 										<td><?php echo $row["first_name"]." ".$row["middle_name"]." ".$row["last_name"] ?></td>
-										<td><?php echo $row["current_address"] ?></td>
 										<td><?php echo $row["session"] ?></td>
 										<td><?php echo $row["course_code"] ?></td>
 										<!-- date_format($date,"Y/m/d H:i:s"); -->
 										<td><?php echo date("Y-M-d",strtotime($row["admission_date"])); ?></td>
 										<td width='170'> 
 											<?php 
-												echo "<a class='btn btn-primary' href=display-student.php?roll_no=".$row['roll_no'].">Profile</a> 
+												echo "<a class='btn btn-primary' href=display-student.php?roll_no=".$row['roll_no'].">Profile</a>  "
+											?>
+										</td>
+
+										<td>
+										<?php 
+												echo "
 												<a class='btn btn-danger' href=delete-function.php?roll_no=".$row['roll_no'].">Delete</a> "
 											?>
 										</td>
